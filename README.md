@@ -14,16 +14,21 @@ Raven includes an onboard inertial measurement unit (IMU) and Qwiic (https://www
 
 To power these devices LiPo batteries will be provided.
 > [!CAUTION]
-> LiPo are **DANGEROUS**. Please review LiPo safety notes and attend LiPo lecture before continuing with the Hardware connection.
+> LiPo are **DANGEROUS**. Please review LiPo safety notes and attend LiPo lecture before using the kitbot with a battery.
 
 # Hardware Setup
-## Raven
+## Battery
+### LiPo
+The LiPo battery for the Pi is a LiPo battery with 3 cells connected in series (3S battery). The battery has an XT60 connector for power output and a balancing lead for monitoring individual cells.
+
+For safety, a fused extension cable is required to be connected to the battery output when in use. 
+
+Low voltage monitor is also required to be connected to the battery balancing lead during use. 
+
+## Raven Board
 ### Pi connection
 Raven is designed as a compact Raspberry Pi HAT (Hardware Attached on Top) board. It meant to be installed directly on top of the Pi 5.
 
-### Battery connection
-The battery for the Pi is a LiPo batter with XT60 connector. For safety, a fused extension cable is required to be connected to the battery output when in use. 
-Low voltage monitor is also required to be connected to the battery balancing lead during use. 
 
 
 
