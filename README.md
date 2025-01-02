@@ -49,14 +49,14 @@ The battery connector on the Raven board is a XT30 connector instead of the full
 Low voltage monitor is also required to be connected to the battery balancing lead (JST-XH) during use.
 
 > [!IMPORTANT]  
-> Please have the low voltage monitor connected to the battery balancing lead **as long as the battery is in use**
+> Please have the low voltage monitor connected to the battery balancing lead **as long as the battery is in use**. When not in use, feel free to remove the monitor and store the battery in the battery safe bag.
 
 <p align="center">
 <img src="image/voltage_monitor.png" width="50%" />
 </p>
 
 > [!IMPORTANT]  
-> The low voltage monitor is polarized. Please be careful when installing the balancing lead. The black wire should be connected to the first pin (BX100 end) as shown in the previous picture. Below is a reference from older generation of the product
+> The low voltage monitor is polarized. Please be careful when installing the balancing lead. The black wire should be connected to the first pin (BX100 end) as shown in the previous picture. Below is a reference from older generation of the product.
 > <p align="center">
 > <img src="image/voltage_monitor_connection.png" width="50%" />
 > </p>
