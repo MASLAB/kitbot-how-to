@@ -18,18 +18,35 @@ To power these devices LiPo batteries will be provided.
 
 # Hardware Setup
 ## Battery
+> [!WARNING]
+> Information below are simply summary of LiPo safety notes. For more details, please check LiPo safety notes.
+
 ### LiPo
 The LiPo battery for the Pi is a LiPo battery with 3 cells connected in series (3S battery). The battery has an XT60 connector for power output and a JST-XH balancing lead for monitoring individual cells.  
 
-![battery](image/battery.jpg)
+<p align="center">
+<img src="image/battery.jpg" width="500px" />
+</p>
 
+### Fused extension cable
 For safety, a fused extension cable is required to be connected to the battery output when in use.  
 
-![fused cable](image/fused_cable.jpg)
+<p align="center">
+<img src="image/fused_cable.jpg" width="500px" />
+</p>
 
-Low voltage monitor is also required to be connected to the battery balancing lead during use. 
+### Low voltage monitor
+Low voltage monitor is also required to be connected to the battery balancing lead (JST-XH) during use. 
 
+<p align="center">
 <img src="image/voltage_monitor.png" width="50%" />
+</p>
+
+> [!IMPORTANT]  
+> The low voltage monitor is polarized. Please be careful when installing the balancing lead. The black wire should be connected to the first pin (BX100 end) as shown in the picture.
+> <p align="center">
+> <img src="image/voltage_monitor_connection.png" width="50%" />
+> </p>
 
 ## Raven Board
 ### Pi connection
