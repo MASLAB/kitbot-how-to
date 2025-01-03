@@ -73,9 +73,9 @@ Raven is designed as a compact Raspberry Pi HAT (Hardware Attached on Top) board
 ### Motor connection
 Raven supports up to 5 motors with 5 optional encoders. If using encoder, make sure the the motor is modified according to [Motor](#motor). 
 
-Each motor terminal block has 2 screw ports for power and ground for each motor. The left most block is motor 1 and right most block is motor 5.
+Each motor [terminal block](#motor-terminals) has 2 screw ports for power and ground for each motor. The left most block is motor 1 and right most block is motor 5.
 
-Each encoder port is made of a row of black, blue, yellow, and green pins. The top most encoder port is for motor 1 and bottom most port is for motor 5.
+Each encoder port is made of a row of [black, blue, yellow, and green pins](#encoder-pins). The top most encoder port is for motor 1 and bottom most port is for motor 5.
 
 To connect the motor power, loosen the screws of a terminal block, insert the power (red) wire into one screw ports and ground (white) into the other screw port, and tighten the screws.
 
@@ -85,12 +85,20 @@ To connect the motor power, loosen the screws of a terminal block, insert the po
 To connect the motor encoder, plug in the encoder wires, matching the colors into the encoder port of corresponding motor.
 
 ### Servo connection
-Raven supports up to 4 servos. Each servo port is made of a column of black, red, and yellow pins. The left most servo port is for servo 1 and right most port is for servo 4.
+Raven supports up to 4 servos. Each servo port is made of a column of [black, red, and yellow pins](#servo-pins). The left most servo port is for servo 1 and right most port is for servo 4.
 
 To connect the servo, install the servo connector directly onto the servo pins, matching brown to black, red to red, and orange to yellow.
 
 ### Switch connection
-Raven has 5 switches that gets connected to ground when closed. Each switch port is made of a row of your team's favorite colors.
+Raven has 5 switches that gets connected to ground when closed. Each switch port is made of a row of [your team's favorite colors](#switch-pins). The left side of the port is connected to ground. The right side is as followed from top to bottom:
+1. GPIO 6
+2. GPIO 16
+3. GPIO 5
+4. GPIO 7
+5. GPIO 19
+
+### qwiic connection
+Raven also have 2 qwiic ports to support qwiic devices such as another inertial measurement sensor, color sensor, GPS, and even an LCD. Behind the connectors are connection to the I2C ports of the Raspberry Pi. The left connector is for I2C port 1 and right connector is for I2C port 2. More information about qwiic connection system can be found here: https://www.sparkfun.com/qwiic 
 
 ## Battery
 > [!WARNING]
