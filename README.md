@@ -166,7 +166,7 @@ We have a ROS2 local setup guide to install ROS2 and VSCode on your personal com
 To connect to the Pi, we use [Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) as the most barebone way to connect without a monitor and a keyboard. SSH is preinstalled in Ubuntu. SSH is a software to log in and open a terminal on the Pi through the network. The network connection can be through the `EECS-Labs` WiFi when in lab or `MIT` WiFi when anywhere else on campus or the Pi's Ethernet port (preferred).
 
 ### IP address
-For SSH, we need the Pi's [IP address](https://en.wikipedia.org/wiki/IP_address). On WiFi, the IP address of your Pi is reported periodically on https://maslab.mit.edu/pollmemaybe. For Ethernet, connect the to the Pi through the Ethernet cable and the IP of the Pi is fixed at 192.168.1.1.
+For SSH, we need the Pi's [IP address](https://en.wikipedia.org/wiki/IP_address). On WiFi, the IP address of your Pi is reported periodically on https://maslab.mit.edu/pollmemaybe. For Ethernet, connect the to the Pi through the Ethernet cable and the IP of the Pi is fixed at `192.168.1.1`.
 
 > [!TIP]
 > For most reliable connection and for ROS message to communicate to your computer as well, please use Ethernet connection. MIT wireless network is set up to refresh the IP address of the Pi and causes frequent disconnection. It also blocks ROS messages from passing between the Pi and your computer. It is really only fine for starting up your robot on the field once you have developed your robot software.
@@ -180,7 +180,7 @@ Once you have the IP address and information, open a terminal and use SSH with t
 ssh <username>@<ip-address>
 ```
 When you use SSH to access a computer with a new IP address for the first time, SSH will return something like:
-```shell
+```text
 The authenticity of host '194.195.118.85 (194.195.118.85)' can't be established.
 ED25519 key fingerprint is SHA256:wF2qILJg7VbqEE4/zWmyMTSwy3ja7be1jTIg3WzmpeE.
 This key is not known by any other names
