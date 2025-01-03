@@ -107,6 +107,14 @@ Raven has 5 switches that gets connected to ground when closed. Each switch port
 ### qwiic connection
 Raven also have 2 qwiic ports to support qwiic devices such as another inertial measurement sensor, color sensor, GPS, and even an LCD. Behind the connectors are connection to the I2C ports of the Raspberry Pi. The left connector is for I2C port 1 and right connector is for I2C port 2. More information about qwiic connection system can be found here: https://www.sparkfun.com/qwiic 
 
+### Battery connection
+Raven uses an XT30 connector to connect to the battery. This is the yellow connector on the right side of the board. It is smaller than the XT60 connector on the battery and requires an adapter.
+
+<p align="center">
+<img src="image/battery_adapter.png" width="50%" />
+</p>
+
+
 ## Battery
 > [!WARNING]
 > Information below are simply summary of LiPo safety notes for using the battery with the kitbot. For more details, please check LiPo safety notes.
@@ -123,13 +131,6 @@ For safety, a fused extension cable is required to be connected to the battery o
 
 <p align="center">
 <img src="image/fused_cable.jpg" width="50%" />
-</p>
-
-### XT60 to XT30 adapter
-The battery connector on the Raven board is a XT30 connector instead of the full size XT60. Therefore, an adapter is required to be connected to the fused extension cable.
-
-<p align="center">
-<img src="image/battery_adapter.png" width="50%" />
 </p>
 
 ### Low voltage monitor
