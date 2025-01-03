@@ -163,13 +163,19 @@ If you have never used computer through a terminal before, please follow this tu
 We have a ROS2 local setup guide to install ROS2 and VSCode on your personal computer and familiarize with both software. The guide is available at: https://github.com/MASLAB/ros2-setup
 
 ## Connect to Pi (SSH)
-To connect to the Pi, we use [Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) as the most barebone way to connect without a monitor and a keyboard. SSH is preinstalled in Ubuntu. SSH is a software to log in and open a terminal on the Pi through the network. The network connection can be through the `EECS-Labs` WiFi when in lab or `MIT` WiFi when anywhere else on campus or the Pi's Ethernet port (preferred).
+To connect to the Pi, we use [Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) as the most barebone way to connect without a monitor and a keyboard. SSH is preinstalled in Ubuntu. SSH is a software to log in and open a terminal on the Pi through the network. The network connection can be through WiFi or the Pi's Ethernet port (preferred). The Pi is preconfigured to connect to `EECS-Labs` when in lab or `MIT` when anywhere else on campus.
 
 ### IP address
-For SSH, we need the Pi's [IP address](https://en.wikipedia.org/wiki/IP_address). On WiFi, the IP address of your Pi is reported periodically on https://maslab.mit.edu/pollmemaybe. For Ethernet, connect the to the Pi through the Ethernet cable and the IP of the Pi is fixed at `192.168.1.1`.
+For SSH, we need the Pi's [IP address](https://en.wikipedia.org/wiki/IP_address). On WiFi, the IP address and wireless network name of your Pi is reported periodically on https://maslab.mit.edu/pollmemaybe. For Ethernet, connect the to the Pi through the Ethernet cable and the IP of the Pi is fixed at `192.168.1.1`.
+
+> [!IMPORTANT]
+> For connection through wireless network, make sure you are on the same wireless network as the Pi. This means you will have to be on `EECS-Labs` in the lab or `MIT`/`MIT Secure` when anywhere else on campus.
 
 > [!TIP]
 > For most reliable connection and for ROS message to communicate to your computer as well, please use Ethernet connection. MIT wireless network is set up to refresh the IP address of the Pi and causes frequent disconnection. It also blocks ROS messages from passing between the Pi and your computer. It is really only fine for starting up your robot on the field once you have developed your robot software.
+
+> [!TIP]
+> When using Ethernet, it may be helpful to temporarily disable your WiFi connection to not confuse your computer. The 
 
 ### Account
 We will also need a user account to log into the Pi. Please ask a MASLAB staff for username and password information.
@@ -193,4 +199,16 @@ VSCode has an extension to remotely connect to the Pi's and open its folders dir
 
 Install and follow the [Getting started](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh#getting-started) note with simple SSH host setup. 
 
+## Getting ROS message from Pi (ETHERNET ONLY)
+Due to restriction on MIT WiFi networks, ROS2 messages can only be forwarded through Ethernet connection. To try this out: 
 
+1. Do [FizzBuzz exercise](https://github.com/MASLAB/ROS2_FizzBuzz) on the Pi through SSH or VSCode Remote.
+2. Also have at least fizzbuzz_interfaces on your local ROS2 workspace.
+3. Build and source the workspace on BOTH the Pi and your local computer.
+4. Launch fizzbuzz (`ros2 launch fizzbuzz fizzbuzz_launch.py`) on the Pi.
+5. Echo fizzbuzz_stats (`ros2 topic echo fizzbuzz_stats`) on your computer.
+
+After following those steps, make sure that `fizzbuzz_stats` messages display on your computer. You can also run `rqt` on your computer and see that the nodes are as expected.
+
+> [!TIP]
+> Getting messages passes between the Pi and your local computer is extremely helpful for debugging purposes. It will let you visualize what the Pi see from its webcam for example. It will also allow you to send commands from your computer computer to the Pi. The latter may become useful in later stages of the class.
