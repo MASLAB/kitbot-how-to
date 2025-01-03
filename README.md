@@ -1,4 +1,4 @@
-# Kitbot how-to
+# KitBot how-to
 Guide for interacting with the KitBot
 
 # Introduction
@@ -14,7 +14,7 @@ MASLAB KitBot consists of two central components:
 
 MASLAB KitBot also includes motors with encoders and servos to mobilize the robot. Teams can opt to use other motors and servos. More about actuators will be covered in another guide.
 
-Raven also includes an onboard inertial measurement unit (IMU) and Qwiic (https://www.sparkfun.com/qwiic) connector system to connect the Pi 5 to other sensors. More about how to use sensors will be covered in another guide. 
+Raven also includes an onboard inertial measurement unit (IMU) and qwiic (https://www.sparkfun.com/qwiic) connector system to connect the Pi 5 to other sensors. More about how to use sensors will be covered in another guide. 
 
 To power these devices LiPo batteries will be provided.
 > [!CAUTION]
