@@ -1,4 +1,4 @@
-# kitbot-how-to
+# Kitbot how-to
 Guide for interacting with the KitBot
 
 # Introduction
@@ -28,7 +28,7 @@ The Raspberry Pi 5 is already set up with Ubuntu 24.04 and ROS 2. Communication 
 > As a soldering practice ~~and cost cutting effort 💸~~, some kitbot part requires a bit of soldering. If you are new to soldering, need a refresh for soldering, or having any question/concern/problem, please reach out to a MASLAB staff during lab hours for assistance.
 
 ## Motor
-TODO: Add images
+<!-- TODO: Add images -->
 The wheel motors come with uncrimped power and encoder wires. Below is the color code for the motor.
 
 <p align="center">
@@ -43,32 +43,36 @@ The Red and White pins are for powering the motor. They can be screwed into the 
 
 3. Strip and solder the uncrimped ends to the motor's uncrimped encoder wires of the same colors.
 
-Your end motor should look like this below. Make 2 of them for the driving wheels.
+<!-- Your end motor should look like this below. Make 2 of them for the driving wheels. -->
 
 ## Raspberry Pi
 The Raspberry Pi 5 requires an active cooler to properly cool the board during heavy computations (i.e. image processing). To install the cooler, follow the installation guide at: https://datasheets.raspberrypi.com/cooling/raspberry-pi-active-cooler-product-brief.pdf 
 
 ## Raven Board
+
+> [!IMPORTANT]
+> When described using relative position (left, right, top, bottom, etc.), the board is assummed to be facing up (component sides on top). The 40 pins (20x2) headers is "top" such that the yellow battery connector is "right", etc.
+
 ### Soldering
-TODO: Add images
+<!-- TODO: Add images -->
 #### Motor terminals
-Raven uses terminal blocks to connect to motors. Solder at least 2 of these terminals to connect to the kitbot wheel motors. Each terminal block is for one motor.
+Raven uses 5 terminal blocks around the bottom edge to connect to motors. Solder at least 2 of these terminals to connect to the kitbot wheel motors. Each terminal block is for one motor.
 
 #### Encoder pins
-Each motor may be equipped with an encoder. Populate Raven's encoder ports with black, blue, yellow, and green headers.
+Each motor may be equipped with an encoder. The encoder pins are 4x5 pins located on the left side, above 2 black buttons. Populate Raven's encoder ports with black, blue, yellow, and green headers from left to right.
 
 #### Servo pins
-A typical servo has 3 pins for power and signal. Populate Raven's servo ports with black, red, and yellow headers.
+A typical servo has 3 pins for power and signal. The servo pins are 5x3 pins near the top right corner of the board. Populate Raven's servo ports with black, red, and yellow headers from top to bottom.
 
 #### Switch pins
-Raven also have switch ports that are connected to the Pi's GPIOs for buttons / limit switches. Polulate them with any two color like your team's unique board identifier 😁
+Raven also have switch ports that are connected to the Pi's GPIOs for buttons / limit switches. They are 2x5 pins located left of the servo pins. Populate them with any color like your team's unique board identifier 😁
 
 #### Pi connector
-Raven is connected to the Raspberry Pi 5 through the standard Raspberry Pi 40 pins connector. To populate it:
+Raven is connected to the Raspberry Pi 5 through the standard Raspberry Pi 40 pins connector. It is the 20x2 pins located at the top most edge of the board. To populate it:
 
 1. Install the connector such that the exposed pins go from the bottom (side with MASLAB logo) to the top (side with components). Please be careful about this direction! Ask MASLAB staff if you are not sure.
 
-2. Solder the connectors.
+2. Solder the pins.
 
 ### Pi connection
 Raven is designed as a compact Raspberry Pi HAT (Hardware Attached on Top) board. It meant to be installed directly on top of the Pi 5. To properly secure the board to the Pi, follow the [installation video](https://vilros.com/pages/pi-5-active-cooler-compatible-case-instruction-video) but do not populate the plastic covers. Instead, use Raven board as the top cover and leave the bottom cover uninstalled. We can mount the assembly onto the kitbot later through the bottom standoffs.
