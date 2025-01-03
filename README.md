@@ -18,7 +18,10 @@ Raven also includes an onboard inertial measurement unit (IMU) and Qwiic (https:
 
 To power these devices LiPo batteries will be provided.
 > [!CAUTION]
-> LiPo are **DANGEROUS**. Please review LiPo safety notes and attend LiPo lecture before using the kitbot with a battery.
+> LiPo batteries are **DANGEROUS**. Please review LiPo safety notes and attend LiPo lecture before using the kitbot with a battery.
+
+## Softwares
+The Raspberry Pi 5 is already set up with Ubuntu 24.04 and ROS 2. Communication with the Pi will be through the Pi's Ethernet connector or through the wireless network.
 
 # Hardware Setup
 > [!NOTE]
@@ -28,9 +31,9 @@ To power these devices LiPo batteries will be provided.
 TODO: Add images
 The wheel motors come with uncrimped power and encoder wires. Below is the color code for the motor.
 
-> <p align="center">
-> <img src="image/motor_pins.png" width="50%" />
-> </p>
+<p align="center">
+<img src="image/motor_pins.png" width="50%" />
+</p>
 
 The Red and White pins are for powering the motor. They can be screwed into the motor terminal blocks (to be explained later). The other pins are for encoders to count how many revolution has the motor rotated. To easily connect and disconnect these pins in the future, we can solder wires with headers onto them:
 
@@ -143,10 +146,51 @@ Low voltage monitor is also required to be connected to the battery balancing le
 
 ### Full battery connection diagram
 
-> <p align="center">
-> <img src="image/battery_diagram.png" width="100%" />
-> </p>
+<p align="center">
+<img src="image/battery_diagram.png" width="100%" />
+</p>
 
+> [!CAUTION]
+> The battery will also power the Pi on through Raven board and conflicts with the USB-C power adapter. **DO NOT USE THE USB-C POWER ADAPTER WITH THE PI WHILE THE BATTERY IS PLUGGED IN**
 
+# Software Setup
+## Terminal
+Many interaction with the Pi and using ROS will be through a [terminal](https://en.wikipedia.org/wiki/Command-line_interface). To simply put, a terminal is a software for interaction with the computer through text input. For Ubuntu, you can access the terminal in the software panel or use shortcut `Ctrl + Alt + T`.
+
+If you have never used computer through a terminal before, please follow this tutorial to learn how to use the terminal: https://ubuntu.com/tutorials/command-line-for-beginners 
+
+## ROS2 Setup
+We have a ROS2 local setup guide to install ROS2 and VSCode on your personal computer and familiarize with both software. The guide is available at: https://github.com/MASLAB/ros2-setup
+
+## Connect to Pi (SSH)
+To connect to the Pi, we use [Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) as the most barebone way to connect without a monitor and a keyboard. SSH is preinstalled in Ubuntu. SSH is a software to log in and open a terminal on the Pi through the network. The network connection can be through the `EECS-Labs` WiFi when in lab or `MIT` WiFi when anywhere else on campus or the Pi's Ethernet port (preferred).
+
+### IP address
+For SSH, we need the Pi's [IP address](https://en.wikipedia.org/wiki/IP_address). On WiFi, the IP address of your Pi is reported periodically on https://maslab.mit.edu/pollmemaybe. For Ethernet, connect the to the Pi through the Ethernet cable and the IP of the Pi is fixed at 192.168.1.1.
+
+> [!TIP]
+> For most reliable connection and for ROS message to communicate to your computer as well, please use Ethernet connection. MIT wireless network is set up to refresh the IP address of the Pi and causes frequent disconnection. It also blocks ROS messages from passing between the Pi and your computer. It is really only fine for starting up your robot on the field once you have developed your robot software.
+
+### Account
+We will also need a user account to log into the Pi. Please ask a MASLAB staff for username and password information.
+
+### Login in
+Once you have the IP address and information, open a terminal and use SSH with this command format.
+```shell
+ssh <username>@<ip-address>
+```
+When you use SSH to access a computer with a new IP address for the first time, SSH will return something like:
+```shell
+The authenticity of host '194.195.118.85 (194.195.118.85)' can't be established.
+ED25519 key fingerprint is SHA256:wF2qILJg7VbqEE4/zWmyMTSwy3ja7be1jTIg3WzmpeE.
+This key is not known by any other names
+Are you sure you want to continue connecting (yes/no/[fingerprint])?
+```
+Enter `yes` to confirm and remember the Pi's network identity for future access. Then type the password as provided by MASLAB staff.
+
+## Connect to Pi (VSCode Remote Window)
+VSCode has an extension to remotely connect to the Pi's and open its folders directly on VSCode. The extension is available here: https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh 
+
+Install and follow the [Getting started](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh#getting-started) note with simple SSH host setup. 
 
 
