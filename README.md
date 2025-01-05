@@ -26,6 +26,8 @@ The Raspberry Pi 5 is already set up with Ubuntu 24.04 and ROS 2. Communication 
 # Hardware Setup
 > [!NOTE]
 > As a soldering practice ~~and cost cutting effort 💸~~, some kitbot part requires a bit of soldering. If you are new to soldering, need a refresh for soldering, or having any question/concern/problem, please reach out to a MASLAB staff during lab hours for assistance.
+> For soldering through-hole components, here is a good tutorial video: https://www.youtube.com/watch?v=DJH7VLGJ4fs
+> For soldering cables together, here is another good tutorial video: https://www.youtube.com/watch?v=NSqPHQ1zQco
 
 ## Motor
 <!-- TODO: Add images -->
@@ -37,11 +39,13 @@ The wheel motors come with uncrimped power and encoder wires. Below is the color
 
 The Red and White pins are for powering the motor. They can be screwed into the motor terminal blocks (to be explained later). The other pins are for encoders to count how many revolution has the motor rotated. To easily connect and disconnect these pins in the future, we can solder wires with headers onto them:
 
-1. Pull out a black, yellow, green, and blue wires from the precrimped cable sets. 
+1. Pull out a black, yellow, green, and blue wires from the precrimped cable sets.
 
 2. Cut each of them in half to have precrimped leads for 2 motors.
 
 3. Strip and solder the uncrimped ends to the motor's uncrimped encoder wires of the same colors.
+
+4. Make 2 of them for the driving wheels.
 
 <!-- Your end motor should look like this below. Make 2 of them for the driving wheels. -->
 
@@ -51,12 +55,21 @@ The Raspberry Pi 5 requires an active cooler to properly cool the board during h
 ## Raven Board
 
 > [!IMPORTANT]
-> When described using relative position (left, right, top, bottom, etc.), the board is assummed to be facing up (component sides on top). The 40 pins (20x2) headers is "top" such that the yellow battery connector is "right", etc.
+> When described using relative position (left, right, top, bottom, etc.), the board is assummed to be facing up (component side on top). The 40 pins (20x2) headers is "top". All components are installed on the component side unless mentioned otherwise.
 
 ### Soldering
 <!-- TODO: Add images -->
+#### On button
+Raven needs a power button to turn on. The connector to this power button is located near top right corner of the `1R0` cube (an inductor). Grab the power button cable, the power button connector, and the power button. Solder the connector, matching the outline on the board. Solder the power button cable to the power button.
+
+#### Battery connector
+Raven uses an XT30 connector at the right most edge to connect to the battery. Install the connector and make sure that the shape of the connector matches the outline (flat edge toward top and angled edge toward bottom of board). Solder the connector.
+
+> [!CAUTION]
+> As a battery connector, soldering and using this connector incorrectly will likely destroy the Raven board AND the Pi if connected. Please make sure to follow the instruction, take a look at staff's reference board, and ask a MASLAB staff if you are unsure about anything.
+
 #### Motor terminals
-Raven uses 5 terminal blocks around the bottom edge to connect to motors. Solder at least 2 of these terminals to connect to the kitbot wheel motors. Each terminal block is for one motor.
+Raven uses 5 terminal blocks around the bottom edge to connect to motors. Each terminal block is for one motor. Solder at least 2 of these terminals to connect to the kitbot wheel motors. Make sure that the opening points to the edge of the board.
 
 #### Encoder pins
 Each motor may be equipped with an encoder. The encoder pins are 4x5 pins located on the left side, above 2 black buttons. Populate Raven's encoder ports with black, blue, yellow, and green headers from left to right.
@@ -80,29 +93,69 @@ Raven is designed as a compact Raspberry Pi HAT (Hardware Attached on Top) board
 ### Motor connection
 Raven supports up to 5 motors with 5 optional encoders. If using encoder, make sure the the motor is modified according to [Motor](#motor). 
 
-Each motor [terminal block](#motor-terminals) has 2 screw ports for power and ground for each motor. The left most block is motor 1 and right most block is motor 5.
+Each motor [terminal block](#motor-terminals) has 2 screw ports for power and ground (GND) for each motor. The left most block is motor 1 and right most block is motor 5.
 
-Each encoder port is made of a row of [black, blue, yellow, and green pins](#encoder-pins). The top most encoder port is for motor 1 and bottom most port is for motor 5.
+Each encoder port is made of a row of [black, blue, yellow, and green pins](#encoder-pins). The top most encoder port is for motor 1 and bottom most port is for motor 5. From black to green (or from left to right if you did not use colored header):
+
+<center>
+
+(Left to right)
+| Black       | Blue       | Yellow | Green |
+|-------------|------------|--------|-------|
+| Hall ground | Hall power | C1     | C2    |
+
+</center>
 
 To connect the motor power, loosen the screws of a terminal block, insert the power (red) wire into one screw ports and ground (white) into the other screw port, and tighten the screws.
 
 > [!TIP]
 > The order of the wire does not matter. Reversing them will reverse the rotation of the motor. Feel free to experiment and use whichever order makes the most sense for your software.
 
-To connect the motor encoder, plug in the encoder wires, matching the colors into the encoder port of corresponding motor.
+To connect the motor encoder, plug in the encoder wires to corresponding signal. 
+
+> [!TIP]
+> If you are using the wheel motor you modified in [Motor](#motor), you can match the colors into the encoder port of corresponding motor. If you are using other motor, **check the datasheet and match the signals**. They may have slightly different names but they should all have power, ground, and two other signals. Like the motor, reversing the two signal also reverse the encoder count.
 
 ### Servo connection
-Raven supports up to 4 servos. Each servo port is made of a column of [black, red, and yellow pins](#servo-pins). The left most servo port is for servo 1 and right most port is for servo 4.
+Raven supports up to 4 servos. Each servo port is made of a column of [black, red, and yellow pins](#servo-pins). The left most servo port is for servo 1 and right most port is for servo 4. From black to yellow (or from top to bottom if you did not use colored header):
+
+<center>
+
+(Top to bottom)
+
+<table>
+  <tr>
+    <th>Black</th>
+    <td>Ground</td>
+  </tr>
+  <tr>
+    <th>Red</th>
+    <td>Power (5V)</td>
+  </tr>
+  <tr>
+    <th>Yellow</th>
+    <td>Signal</td>
+  </tr>
+</table>
+
+</center>
 
 To connect the servo, install the servo connector directly onto the servo pins, matching brown to black, red to red, and orange to yellow.
 
 ### Switch connection
-Raven has 5 switches that gets connected to ground when closed. Each switch port is made of a row of [your team's favorite colors](#switch-pins). The left side of the port is connected to ground. The right side is as followed from top to bottom:
-1. GPIO 6
-2. GPIO 16
-3. GPIO 5
-4. GPIO 7
-5. GPIO 19
+Raven has 5 switches that gets connected to ground (GND) when closed. Each switch port is made of a row of [your team's favorite colors](#switch-pins). The left side of the port is connected to ground. The right side is as followed from top to bottom:
+
+<center>
+
+| Left   | Right |
+|--------|-------|
+| GPIO6  | GND   |
+| GPIO16 | GND   |
+| GPIO5  | GND   |
+| GPIO7  | GND   |
+| GPIO19 | GND   |
+
+</center>
 
 ### qwiic connection
 Raven also have 2 qwiic ports to support qwiic devices such as another inertial measurement sensor, color sensor, GPS, and even an LCD. Behind the connectors are connection to the I2C ports of the Raspberry Pi. The left connector is for I2C port 1 and right connector is for I2C port 2. More information about qwiic connection system can be found here: https://www.sparkfun.com/qwiic 
@@ -115,7 +168,7 @@ Raven uses an XT30 connector to connect to the battery. This is the yellow conne
 </p>
 
 
-## Battery
+<!-- ## Battery
 > [!WARNING]
 > Information below are simply summary of LiPo safety notes for using the battery with the kitbot. For more details, please check LiPo safety notes.
 
@@ -156,13 +209,28 @@ Low voltage monitor is also required to be connected to the battery balancing le
 </p>
 
 > [!CAUTION]
-> The battery will also power the Pi on through Raven board and conflicts with the USB-C power adapter. **DO NOT USE THE USB-C POWER ADAPTER WITH THE PI WHILE THE BATTERY IS PLUGGED IN**
+> The battery will also power the Pi on through Raven board and conflicts with the USB-C power adapter. **DO NOT USE THE USB-C POWER ADAPTER WITH THE PI WHILE THE BATTERY IS PLUGGED IN** -->
 
 # Software Setup
+> [!IMPORTANT]
+> For this section, power the Pi with Raven installed on top using the USB-C power adapter. **DO NOT USE THE BATTERY**.
+
 ## Terminal
 Many interaction with the Pi and using ROS will be through a [terminal](https://en.wikipedia.org/wiki/Command-line_interface). To simply put, a terminal is a software for interaction with the computer through text input. For Ubuntu, you can access the terminal in the software panel or use shortcut `Ctrl + Alt + T`.
 
-If you have never used computer through a terminal before, please follow this tutorial to learn how to use the terminal: https://ubuntu.com/tutorials/command-line-for-beginners 
+If you have never used computer through a terminal before, please follow this tutorial to learn how to use the terminal: https://ubuntu.com/tutorials/command-line-for-beginners
+
+## Raven Setup
+Raven board is completely new! That also means it comes with no firmware installed. Therefore, we need to install deploy the firmware by running this command:
+
+```shell
+./raspi-setup/update-software.sh
+```
+
+This command will grab the latest version of the Raven firmware and deploy it on the Raven, so make sure Raven is installed on the Pi before running this command. It will also install the latest version of our software library to use Raven and the onboard IMU.
+
+> [!TIP]
+> MASLAB will always be a work in progress. We may release updated versions of Raven firmware and software library as we (and you) discover bugs and improve our software. Therefore, remember to run this command again when we announce software updates.
 
 ## ROS2 Setup
 We have a ROS2 local setup guide to install ROS2 and VSCode on your personal computer and familiarize with both software. The guide is available at: https://github.com/MASLAB/ros2-setup
@@ -217,3 +285,8 @@ After following those steps, make sure that `fizzbuzz_stats` messages display on
 
 > [!TIP]
 > Getting messages passes between the Pi and your local computer is extremely helpful for debugging purposes. It will let you visualize what the Pi see from its webcam for example. It will also allow you to send commands from your computer computer to the Pi. The latter may become useful in later stages of the class.
+
+# What's next?
+Congratulations, you have set up and familiarized with the KitBot hardware! Please checkout the following how-tos to use KitBot and ROS2!  
+* [Battery how-to](https://github.com/MASLAB/battery-how-to)  
+* [Software how-to](https://github.com/MASLAB/software-how-to)
