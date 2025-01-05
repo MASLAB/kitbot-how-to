@@ -167,50 +167,6 @@ Raven uses an XT30 connector to connect to the battery. This is the yellow conne
 <img src="image/battery_adapter.png" width="50%" />
 </p>
 
-
-<!-- ## Battery
-> [!WARNING]
-> Information below are simply summary of LiPo safety notes for using the battery with the kitbot. For more details, please check LiPo safety notes.
-
-### LiPo
-The LiPo battery for the Pi is a LiPo battery with 3 cells connected in series (3S battery). The battery has an XT60 connector for power output and a JST-XH balancing lead for monitoring individual cells.  
-
-<p align="center">
-<img src="image/battery.jpg" width="50%" />
-</p>
-
-### Fused extension cable
-For safety, a fused extension cable is required to be connected to the battery output when in use.  
-
-<p align="center">
-<img src="image/fused_cable.jpg" width="50%" />
-</p>
-
-### Low voltage monitor
-Low voltage monitor is also required to be connected to the battery balancing lead (JST-XH) during use.
-
-> [!IMPORTANT]  
-> Please have the low voltage monitor connected to the battery balancing lead **as long as the battery is in use**. When not in use, feel free to remove the monitor and store the battery in the battery safe bag.
-
-<p align="center">
-<img src="image/voltage_monitor.png" width="50%" />
-</p>
-
-> [!IMPORTANT]  
-> The low voltage monitor is polarized. Please be careful when installing the balancing lead. The black wire should be connected to the first pin (BBX end) as shown in the previous picture. Below is a reference from older generation of the product.
-> <p align="center">
-> <img src="image/voltage_monitor_connection.png" width="50%" />
-> </p>
-
-### Full battery connection diagram
-
-<p align="center">
-<img src="image/battery_diagram.png" width="100%" />
-</p>
-
-> [!CAUTION]
-> The battery will also power the Pi on through Raven board and conflicts with the USB-C power adapter. **DO NOT USE THE USB-C POWER ADAPTER WITH THE PI WHILE THE BATTERY IS PLUGGED IN** -->
-
 # Software Setup
 > [!IMPORTANT]
 > For this section, power the Pi with Raven installed on top using the USB-C power adapter. **DO NOT USE THE BATTERY**.
