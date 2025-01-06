@@ -12,13 +12,17 @@ MASLAB KitBot consists of two central components:
 
 2. Raven - MASLAB custom circuit board to handle power and interaction with actuators and sensors
 
+<p align="center">
+<img src="image/raven.png" width="50%" />
+</p>
+
 MASLAB KitBot also includes motors with encoders and servos to mobilize the robot. Teams can opt to use other motors and servos. More about actuators will be covered in another guide.
 
 Raven also includes an onboard inertial measurement unit (IMU) and qwiic (https://www.sparkfun.com/qwiic) connector system to connect the Pi 5 to other sensors. More about how to use sensors will be covered in another guide. 
 
 To power these devices LiPo batteries will be provided.
 > [!CAUTION]
-> LiPo batteries are **DANGEROUS**. Please review LiPo safety notes and attend LiPo lecture before using the kitbot with a battery.
+> LiPo batteries are **DANGEROUS**. Please review [LiPo how-to](https://github.com/MASLAB/battery-how-to/blob/main/README.md) before using the kitbot with a battery.
 
 ## Softwares
 The Raspberry Pi 5 is already set up with Ubuntu 24.04 and ROS 2. Communication with the Pi will be through the Pi's Ethernet connector or through the wireless network.
@@ -55,12 +59,21 @@ The Raspberry Pi 5 requires an active cooler to properly cool the board during h
 ## Raven Board
 
 > [!IMPORTANT]
-> When described using relative position (left, right, top, bottom, etc.), the board is assummed to be facing up (component side on top). The 40 pins (20x2) headers is "top". All components are installed on the component side unless mentioned otherwise.
+> When described using relative position (left, right, top, bottom, etc.), the board is assummed to be facing up (component side on top). The 40 pins (20x2) headers is "top". All components are installed on the component side unless mentioned otherwise. Header pins are installed with short side down and long side up.
+
+<p align="center">
+<img src="image/raven_position.jpeg" width="75%" />
+</p>
 
 ### Soldering
 <!-- TODO: Add images -->
 #### On button
 Raven needs a power button to turn on. The connector to this power button is located near top right corner of the `1R0` cube (an inductor). Grab the power button cable, the power button connector, and the power button. Solder the connector, matching the outline on the board. Solder the power button cable to the power button.
+
+<p align="center">
+<img src="image/power_button.png" width="75%" />
+</p>
+
 
 #### Battery connector
 Raven uses an XT30 connector at the right most edge to connect to the battery. Install the connector and make sure that the shape of the connector matches the outline (flat edge toward top and angled edge toward bottom of board). Solder the connector.
@@ -68,24 +81,48 @@ Raven uses an XT30 connector at the right most edge to connect to the battery. I
 > [!CAUTION]
 > As a battery connector, soldering and using this connector incorrectly will likely destroy the Raven board AND the Pi if connected. Please make sure to follow the instruction, take a look at staff's reference board, and ask a MASLAB staff if you are unsure about anything.
 
+<p align="center">
+<img src="image/battery_connector.png" width="75%" />
+</p>
+
 #### Motor terminals
 Raven uses 5 terminal blocks around the bottom edge to connect to motors. Each terminal block is for one motor. Solder at least 2 of these terminals to connect to the kitbot wheel motors. Make sure that the opening points to the edge of the board.
+
+<p align="center">
+<img src="image/motor_terminal.png" width="75%" />
+</p>
 
 #### Encoder pins
 Each motor may be equipped with an encoder. The encoder pins are 4x5 pins located on the left side, above 2 black buttons. Populate Raven's encoder ports with black, blue, yellow, and green headers from left to right.
 
+<p align="center">
+<img src="image/encoder_pins.png" width="50%" />
+</p>
+
 #### Servo pins
 A typical servo has 3 pins for power and signal. The servo pins are 5x3 pins near the top right corner of the board. Populate Raven's servo ports with black, red, and yellow headers from top to bottom.
+
+<p align="center">
+<img src="image/servo_pins.png" width="75%" />
+</p>
 
 #### Digital pins
 Raven also have digital IO ports that are connected to the Pi's GPIOs for buttons / limit switches / digital output. They are 2x5 pins located left of the servo pins. Populate the right column with black headers and left with any color like your team's unique board identifier 😁
 
+<p align="center">
+<img src="image/io_pins.png" width="50%" />
+</p>
+
 #### Pi connector
 Raven is connected to the Raspberry Pi 5 through the standard Raspberry Pi 40 pins connector. It is the 20x2 pins located at the top most edge of the board. To populate it:
 
-1. Install the connector such that the exposed pins go from the bottom (side with MASLAB logo) to the top (side with components). Please be careful about this direction! Ask MASLAB staff if you are not sure.
+1. Install the connector such that the exposed pins go from the bottom (side with MASLAB logo) to the top (side with components).
 
-2. Solder the pins.
+<p align="center">
+<img src="image/rpi_pins.png" width="75%" />
+</p>
+
+2. Make sure the pins are perfectly square with the board and solder the pins. Misaligned pins may not fit on the Pi.
 
 ### Pi connection
 Raven is designed as a compact Raspberry Pi HAT (Hardware Attached on Top) board. It meant to be installed directly on top of the Pi 5. To properly secure the board to the Pi, follow the [installation video](https://vilros.com/pages/pi-5-active-cooler-compatible-case-instruction-video) but do not populate the plastic covers. Instead, use Raven board as the top cover and leave the bottom cover uninstalled. We can mount the assembly onto the kitbot later through the bottom standoffs.
