@@ -56,6 +56,8 @@ The Red and White pins are for powering the motor. They can be screwed into the 
 ## Raspberry Pi
 The Raspberry Pi 5 requires an active cooler to properly cool the board during heavy computations (i.e. image processing). To install the cooler, follow the installation guide at: https://datasheets.raspberrypi.com/cooling/raspberry-pi-active-cooler-product-brief.pdf 
 
+The Pi also requires a micro SD that stores all the system file. Your kit should include one inside an SD card adapter. This card is already preloaded with ROS2, Raven update scripts, and your team's repository.
+
 ## Raven Board
 
 > [!IMPORTANT]
@@ -126,6 +128,9 @@ Raven is connected to the Raspberry Pi 5 through the standard Raspberry Pi 40 pi
 
 ### Pi connection
 Raven is designed as a compact Raspberry Pi HAT (Hardware Attached on Top) board. It meant to be installed directly on top of the Pi 5. To properly secure the board to the Pi, follow the [installation video](https://vilros.com/pages/pi-5-active-cooler-compatible-case-instruction-video) but do not populate the plastic covers. Instead, use Raven board as the top cover and leave the bottom cover uninstalled. We can mount the assembly onto the kitbot later through the bottom standoffs.
+
+### Power button
+The [power button](#power-button) you made previously plugs into the power connector. When the battery is connected, this button turns on the system. To turn off, shut down the Pi with Pi's power button (not Raven power button) or [command](#shutdown-pi).
 
 ### Motor connection
 Raven supports up to 5 motors with 5 optional encoders. If using encoder, make sure the the motor is modified according to [Motor](#motor). 
@@ -264,6 +269,15 @@ Enter `yes` to confirm and remember the Pi's network identity for future access.
 VSCode has an extension to remotely connect to the Pi's and open its folders directly on VSCode. The extension is available here: https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh 
 
 Install and follow the [Getting started](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh#getting-started) note with simple SSH host setup. 
+
+## Shutdown Pi
+To shutdown the Pi, run this command on the Pi.
+```shell
+sudo shutdown 0
+```
+The `0` in the command indicates that we want to shutdown with 0 wait instead of the default 1 minute wait before shutdown.
+
+Alternatively, you can press the Pi's small power button near the SD card slot.
 
 ## Getting ROS message from Pi (ETHERNET ONLY)
 Due to restriction on MIT WiFi networks, ROS2 messages can only be forwarded through Ethernet connection. To try this out: 
