@@ -218,18 +218,6 @@ Many interaction with the Pi and using ROS will be through a [terminal](https://
 
 If you have never used computer through a terminal before, please follow this tutorial to learn how to use the terminal: https://ubuntu.com/tutorials/command-line-for-beginners
 
-## Raven Setup
-Raven board is completely new! That also means it comes with no firmware installed. Therefore, we need to install deploy the firmware by running this command:
-
-```shell
-./raspi-setup/update-software.sh
-```
-
-This command will grab the latest version of the Raven firmware and deploy it on the Raven, so make sure Raven is installed on the Pi before running this command. It will also install the latest version of our software library to use Raven and the onboard IMU.
-
-> [!TIP]
-> MASLAB will always be a work in progress. We may release updated versions of Raven firmware and software library as we (and you) discover bugs and improve our software. Therefore, remember to run this command again when we announce software updates.
-
 ## ROS2 Setup
 We have a ROS2 local setup guide to install ROS2 and VSCode on your personal computer and familiarize with both software. The guide is available at: https://github.com/MASLAB/ros2-setup
 
@@ -269,6 +257,18 @@ Enter `yes` to confirm and remember the Pi's network identity for future access.
 VSCode has an extension to remotely connect to the Pi's and open its folders directly on VSCode. The extension is available here: https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh 
 
 Install and follow the [Getting started](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh#getting-started) note with simple SSH host setup. 
+
+## Raven Setup
+Raven board is completely new! That also means it comes with no firmware installed. Therefore, we need to install deploy the firmware by running this command on the Pi:
+
+```shell
+./raspi-setup/update-software.sh
+```
+
+This command will grab the latest version of the Raven firmware and deploy it on the Raven, so make sure Raven is installed on the Pi before running this command. It will also install the latest version of our software library to use Raven and the onboard IMU.
+
+> [!TIP]
+> MASLAB will always be a work in progress. We may release updated versions of Raven firmware and software library as we (and you) discover bugs and improve our software. Therefore, remember to run this command again when we announce software updates.
 
 ## Shutdown Pi
 To shutdown the Pi, run this command on the Pi.
