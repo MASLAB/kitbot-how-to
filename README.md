@@ -234,7 +234,7 @@ For SSH, we need the Pi's [IP address](https://en.wikipedia.org/wiki/IP_address)
 > For most reliable connection and for ROS message to communicate to your computer as well, please use Ethernet connection. MIT wireless network is set up to refresh the IP address of the Pi and causes frequent disconnection. It also blocks ROS messages from passing between the Pi and your computer. It is really only fine for starting up your robot on the field once you have developed your robot software.
 
 > [!TIP]
-> When using Ethernet, it may be helpful to temporarily disable your WiFi connection to not confuse your computer. The 
+> When using Ethernet, it may be helpful to temporarily disable your WiFi connection to not confuse your computer.
 
 ### Account
 We will also need a user account to log into the Pi. Please ask a MASLAB staff for username and password information.
