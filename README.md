@@ -77,8 +77,8 @@ Each motor may be equipped with an encoder. The encoder pins are 4x5 pins locate
 #### Servo pins
 A typical servo has 3 pins for power and signal. The servo pins are 5x3 pins near the top right corner of the board. Populate Raven's servo ports with black, red, and yellow headers from top to bottom.
 
-#### Switch pins
-Raven also have switch ports that are connected to the Pi's GPIOs for buttons / limit switches. They are 2x5 pins located left of the servo pins. Populate them with any color like your team's unique board identifier 😁
+#### Digital pins
+Raven also have digital IO ports that are connected to the Pi's GPIOs for buttons / limit switches / digital output. They are 2x5 pins located left of the servo pins. Populate the right column with black headers and left with any color like your team's unique board identifier 😁
 
 #### Pi connector
 Raven is connected to the Raspberry Pi 5 through the standard Raspberry Pi 40 pins connector. It is the 20x2 pins located at the top most edge of the board. To populate it:
@@ -142,8 +142,8 @@ Raven supports up to 4 servos. Each servo port is made of a column of [black, re
 
 To connect the servo, install the servo connector directly onto the servo pins, matching brown to black, red to red, and orange to yellow.
 
-### Switch connection
-Raven has 5 switches that gets connected to ground (GND) when closed. Each switch port is made of a row of [your team's favorite colors](#switch-pins). The left side of the port is connected to ground. The right side is as followed from top to bottom:
+### Digital pins connection
+Raven has 5 digital pins that pair with ground pins. Each digital port is made of a row of [your team's favorite colors](#switch-pins) and ground. The right side of the port is all connected to ground. The left side is as followed from top to bottom:
 
 <center>
 
