@@ -221,6 +221,9 @@ If you have never used computer through a terminal before, please follow this tu
 ## ROS2 Setup
 We have a ROS2 local setup guide to install ROS2 and VSCode on your personal computer and familiarize with both software. The guide is available at: https://github.com/MASLAB/ros2-setup
 
+## MIT GitHub setup
+If you have never used MIT GitHub, you will need to visit https://github.mit.edu to activate your account. After that, to use git on your computer, you have to create and register a key for your computer to access your account. Follow this documentation to do that: https://docs.github.com/en/enterprise-server@3.2/authentication/connecting-to-github-with-ssh
+
 ## Connect to Pi (SSH)
 To connect to the Pi, we use [Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) as the most barebone way to connect without a monitor and a keyboard. SSH is preinstalled in Ubuntu. SSH is a software to log in and open a terminal on the Pi through the network. The network connection can be through WiFi or the Pi's Ethernet port (preferred). The Pi is preconfigured to connect to `EECS-Labs` when in lab or `MIT` when anywhere else on campus.
 
@@ -257,6 +260,11 @@ Enter `yes` to confirm and remember the Pi's network identity for future access.
 VSCode has an extension to remotely connect to the Pi's and open its folders directly on VSCode. The extension is available here: https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh 
 
 Install and follow the [Getting started](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh#getting-started) note with simple SSH host setup. 
+
+## Current folders
+Currently, the Pi has 2 folders in the home (`~/`) directory:
+1. `raspi-setup` - Setup folder with all the scripts that were used to set up the Pi and update scripts to update Raven's firmware and MASLAB software library.
+2. `ros_ws` - A ROS2 workspace that is linked to your team's [MASLAB GitHub repository](https://github.mit.edu/maslab-2025).
 
 ## Raven Setup
 Raven board is completely new! That also means it comes with no firmware installed. Therefore, we need to install deploy the firmware by running this command on the Pi:
@@ -295,5 +303,6 @@ After following those steps, make sure that `fizzbuzz_stats` messages display on
 
 # What's next?
 Congratulations, you have set up and familiarized with the KitBot hardware! Please checkout the following how-tos to use KitBot and ROS2!  
-* [Battery how-to](https://github.com/MASLAB/battery-how-to)  
-* [Software how-to](https://github.com/MASLAB/software-how-to)
+* [Battery how-to](https://github.com/MASLAB/battery-how-to)
+* [Camera how-to](https://github.com/MASLAB/camera-how-to)  
+<!-- * [Software how-to](https://github.com/MASLAB/software-how-to) -->
