@@ -293,7 +293,8 @@ Alternatively, you can press the Pi's small power button near the SD card slot.
 > There is a bug in the Pi's setup that makes ROS2 messages from the Pi not forwarding to your local computer. To fix this, either come by the staff's desk, or try this if you are familiar with editing text files from the terminal:
 > 1. Open `~/.bashrc`
 > 2. Remove the line `export FASTDDS_BUILTIN_TRANSPORTS=LARGEDATA`
-> 3. Save and reboot the Pi
+> 3. Save and reboot the Pi  
+> 
 > Sorry for the trouble!
 
 Due to restrictions on MIT WiFi networks, ROS2 messages can only be forwarded through Ethernet connection. To try this out: 
