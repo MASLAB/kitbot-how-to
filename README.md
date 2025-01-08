@@ -316,20 +316,23 @@ If ROS messages from the Pi are not displaying on your VirtualBox Ubuntu, try th
 
 #### If you are using a USB to Ethernet adapter:
 1. Disconnect from your computer's network by unchecking `Connect Network Adapter` from `Devices > Networks`.
-  <center>
-  <img src="image/disconnect_adapter.png" width="50%" />
-  </center>
+
+<center>
+<img src="image/disconnect_adapter.png" width="75%" />
+</center>
+
 2. Connect the USB to Ethernet adapter that is plugged into the Pi as a USB device with `Devices > USB`. This way the USB to Ethernet adapter is connected directly to your virtual machine.
-  <center>
-  <img src="image/connect_adapter.png" width="50%" />
-  </center>
+
+<center>
+<img src="image/connect_adapter.png" width="75%" />
+</center>
 
 #### If you are not using an adapter and using your laptop's Ethernet port:
 1. Open the virtual machine's settings (https://github.com/MASLAB/ros2-setup?tab=readme-ov-file#additional-settings)
 2. Select `Network` and set `Attached to:` to `Bridged Adapter`, `Name:` to your computer's Ethernet adapter
-  <center>
-  <img src="image/bridged_adapter.png" width="50%" />
-  </center>
+<center>
+<img src="image/bridged_adapter.png" width="75%" />
+</center>
 
 # What's next?
 Congratulations, you have set up and familiarized with the KitBot hardware! Please checkout the following how-tos to use KitBot and ROS2!  
