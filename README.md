@@ -237,7 +237,7 @@ For SSH, we need the Pi's [IP address](https://en.wikipedia.org/wiki/IP_address)
 > For most reliable connection and for ROS message to communicate to your computer as well, please use Ethernet connection. MIT wireless network is set up to refresh the IP address of the Pi and causes frequent disconnection. It also blocks ROS messages from passing between the Pi and your computer. It is really only fine for starting up your robot on the field once you have developed your robot software.
 
 > [!TIP]
-> When using Ethernet, it may be helpful to temporarily disable your WiFi connection to not confuse your computer.
+> When using Ethernet, it may be helpful to temporarily disable your WiFi connection to not confuse your computer. For VirtualBox, check 
 
 ### Account
 We will also need a user account to log into the Pi. Please ask a MASLAB staff for username and password information.
@@ -288,7 +288,15 @@ The `0` in the command indicates that we want to shutdown with 0 wait instead of
 Alternatively, you can press the Pi's small power button near the SD card slot.
 
 ## Getting ROS message from Pi (ETHERNET ONLY)
-Due to restriction on MIT WiFi networks, ROS2 messages can only be forwarded through Ethernet connection. To try this out: 
+### Fix a setup bug
+> [!IMPORTANT]
+> There is a bug in the Pi's setup that makes ROS2 messages from the Pi not forwarding to your local computer. To fix this, either come by the staff's desk, or try this if you are familiar with editing text files from the terminal:
+> 1. Open `~/.bashrc`
+> 2. Remove the line `export FASTDDS_BUILTIN_TRANSPORTS=LARGEDATA`
+> 3. Save and reboot the Pi
+> Sorry for the trouble!
+
+Due to restrictions on MIT WiFi networks, ROS2 messages can only be forwarded through Ethernet connection. To try this out: 
 
 1. Do [FizzBuzz exercise](https://github.com/MASLAB/ROS2_FizzBuzz) on the Pi through SSH or VSCode Remote.
 2. Also have at least fizzbuzz_interfaces on your local ROS2 workspace.
@@ -300,6 +308,18 @@ After following those steps, make sure that `fizzbuzz_stats` messages display on
 
 > [!TIP]
 > Getting messages passes between the Pi and your local computer is extremely helpful for debugging purposes. It will let you visualize what the Pi see from its webcam for example. It will also allow you to send commands from your computer computer to the Pi. The latter may become useful in later stages of the class.
+
+### VirtualBox troubleshooting
+If ROS messages from the Pi are not displaying on your VirtualBox Ubuntu, try this:
+
+1. Disconnect from your computer's network by unchecking `Connect Network Adapter` from `Devices > Networks`.
+  <center>
+  <img src="image/disconnect_adapter.png" width="50%" />
+  </center>
+2. Connect the USB to Ethernet adapter that is plugged into the Pi as a USB device with `Devices > USB`. This way the USB to Ethernet adapter is connected directly to your virtual machine.
+  <center>
+  <img src="image/connect_adapter.png" width="50%" />
+  </center>
 
 # What's next?
 Congratulations, you have set up and familiarized with the KitBot hardware! Please checkout the following how-tos to use KitBot and ROS2!  
