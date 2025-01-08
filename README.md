@@ -310,8 +310,9 @@ After following those steps, make sure that `fizzbuzz_stats` messages display on
 > Getting messages passes between the Pi and your local computer is extremely helpful for debugging purposes. It will let you visualize what the Pi see from its webcam for example. It will also allow you to send commands from your computer computer to the Pi. The latter may become useful in later stages of the class.
 
 ### VirtualBox troubleshooting
-If ROS messages from the Pi are not displaying on your VirtualBox Ubuntu, try this:
+If ROS messages from the Pi are not displaying on your VirtualBox Ubuntu, try the following:
 
+#### If you are using a USB to Ethernet adapter:
 1. Disconnect from your computer's network by unchecking `Connect Network Adapter` from `Devices > Networks`.
   <center>
   <img src="image/disconnect_adapter.png" width="50%" />
@@ -319,6 +320,13 @@ If ROS messages from the Pi are not displaying on your VirtualBox Ubuntu, try th
 2. Connect the USB to Ethernet adapter that is plugged into the Pi as a USB device with `Devices > USB`. This way the USB to Ethernet adapter is connected directly to your virtual machine.
   <center>
   <img src="image/connect_adapter.png" width="50%" />
+  </center>
+
+#### If you are not using an adapter and using your laptop's Ethernet port:
+1. Open the virtual machine's settings (https://github.com/MASLAB/ros2-setup?tab=readme-ov-file#additional-settings)
+2. Select `Network` and set `Attached to:` to `Bridged Adapter`, `Name:` to your computer's Ethernet adapter
+  <center>
+  <img src="image/bridged_adapter.png" width="50%" />
   </center>
 
 # What's next?
