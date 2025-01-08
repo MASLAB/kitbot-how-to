@@ -139,14 +139,14 @@ Each motor [terminal block](#motor-terminals) has 2 screw ports for power and gr
 
 Each encoder port is made of a row of [black, blue, yellow, and green pins](#encoder-pins). The top most encoder port is for motor 1 and bottom most port is for motor 5. From black to green (or from left to right if you did not use colored header):
 
-<center>
+<p align="center">
 
 (Left to right)
 | Black       | Blue       | Yellow | Green |
 |-------------|------------|--------|-------|
 | Hall ground | Hall power | C1     | C2    |
 
-</center>
+</p>
 
 To connect the motor power, loosen the screws of a terminal block, insert the power (red) wire into one screw ports and ground (white) into the other screw port, and tighten the screws.
 
@@ -161,11 +161,7 @@ To connect the motor encoder, plug in the encoder wires to corresponding signal.
 ### Servo connection
 Raven supports up to 4 servos. Each servo port is made of a column of [black, red, and yellow pins](#servo-pins). The left most servo port is for servo 1 and right most port is for servo 4. From black to yellow (or from top to bottom if you did not use colored header):
 
-<center>
-
-(Top to bottom)
-
-<table>
+<table style="margin: 0px auto;">
   <tr>
     <th>Black</th>
     <td>Ground</td>
@@ -180,14 +176,12 @@ Raven supports up to 4 servos. Each servo port is made of a column of [black, re
   </tr>
 </table>
 
-</center>
-
 To connect the servo, install the servo connector directly onto the servo pins, matching brown to black, red to red, and orange to yellow.
 
 ### Digital pins connection
 Raven has 5 digital pins that pair with ground pins. Each digital port is made of a row of [your team's favorite colors](#switch-pins) and ground. The right side of the port is all connected to ground. The left side is as followed from top to bottom:
 
-<center>
+<p align="center">
 
 | Left   | Right |
 |--------|-------|
@@ -197,7 +191,7 @@ Raven has 5 digital pins that pair with ground pins. Each digital port is made o
 | GPIO7  | GND   |
 | GPIO19 | GND   |
 
-</center>
+</p>
 
 ### qwiic connection
 Raven also have 2 qwiic ports to support qwiic devices such as another inertial measurement sensor, color sensor, GPS, and even an LCD. Behind the connectors are connection to the I2C ports of the Raspberry Pi. The left connector is for I2C port 1 and right connector is for I2C port 2. More information about qwiic connection system can be found here: https://www.sparkfun.com/qwiic 
@@ -317,22 +311,26 @@ If ROS messages from the Pi are not displaying on your VirtualBox Ubuntu, try th
 #### If you are using a USB to Ethernet adapter:
 1. Disconnect from your computer's network by unchecking `Connect Network Adapter` from `Devices > Networks`.
 
-<center>
+<p align="center">
 <img src="image/disconnect_adapter.png" width="75%" />
-</center>
+</p>
 
 2. Connect the USB to Ethernet adapter that is plugged into the Pi as a USB device with `Devices > USB`. This way the USB to Ethernet adapter is connected directly to your virtual machine.
 
-<center>
+<p align="center">
 <img src="image/connect_adapter.png" width="75%" />
-</center>
+</p>
 
 #### If you are not using an adapter and using your laptop's Ethernet port:
 1. Open the virtual machine's settings (https://github.com/MASLAB/ros2-setup?tab=readme-ov-file#additional-settings)
-2. Select `Network` and set `Attached to:` to `Bridged Adapter`, `Name:` to your computer's Ethernet adapter
-<center>
+2. Select `Network` and set: 
+  * `Attached to` to `Bridged Adapter`
+  * `Name` to your computer's Ethernet adapter
+  * `Promicious Mode` to `Allow All`
+
+<p align="center">
 <img src="image/bridged_adapter.png" width="75%" />
-</center>
+</p>
 
 # What's next?
 Congratulations, you have set up and familiarized with the KitBot hardware! Please checkout the following how-tos to use KitBot and ROS2!  
