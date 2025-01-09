@@ -63,6 +63,10 @@ The Pi also requires a micro SD that stores all the system file. Your kit should
 > [!IMPORTANT]
 > When described using relative position (left, right, top, bottom, etc.), the board is assummed to be facing up (component side on top). The 40 pins (20x2) headers is "top". All components are installed on the component side unless mentioned otherwise. Header pins are installed with short side down and long side up.
 
+> [!WARNING]
+> Remember to solder the 40-pin header **FIRST** before anything else!  Otherwise, you may be unable to solder additional components?
+
+
 <p align="center">
 <img src="image/raven_position.jpeg" width="75%" />
 </p>
