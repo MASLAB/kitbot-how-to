@@ -335,5 +335,5 @@ If ROS messages from the Pi are not displaying on your VirtualBox Ubuntu, try th
 # What's next?
 Congratulations, you have set up and familiarized with the KitBot hardware! Please checkout the following how-tos to use KitBot and ROS2!  
 * [Battery how-to](https://github.com/MASLAB/battery-how-to)
+* [Software how-to](https://github.com/MASLAB/software-how-to)
 * [Camera how-to](https://github.com/MASLAB/camera-how-to)  
-<!-- * [Software how-to](https://github.com/MASLAB/software-how-to) -->
