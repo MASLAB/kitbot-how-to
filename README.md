@@ -264,7 +264,7 @@ Currently, the Pi has 2 folders in the home (`~/`) directory:
 Raven board is completely new! That also means it comes with no firmware installed. Therefore, we need to install deploy the firmware by running this command on the Pi:
 
 ```shell
-./raspi-setup/update-software.sh
+~/raspi-setup/update-software.sh
 ```
 
 This command will grab the latest version of the Raven firmware and deploy it on the Raven, so make sure Raven is installed on the Pi before running this command. It will also install the latest version of our software library to use Raven and the onboard IMU.
