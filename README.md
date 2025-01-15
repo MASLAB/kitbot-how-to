@@ -154,8 +154,8 @@ Each encoder port is made of a row of [black, blue, yellow, and green pins](#enc
 
 To connect the motor power, loosen the screws of a terminal block, insert the power (red) wire into one screw ports and ground (white) into the other screw port, and tighten the screws.
 
-> [!TIP]
-> The order of the wire does not matter. Reversing them will reverse the rotation of the motor. Feel free to experiment and use whichever order makes the most sense for your software.
+> [!IMPORTANT]
+> The order of the power wires determines if the clockwise rotation is forward or reverse. Feel free to experiment and use whichever order makes the most sense for your software. You encoder value count should match the expected motor spin direction. More specifically, when motor is commanded to go forward, the encoder count should go up and vice versa. If it does not, you will need to swap C1 and C2 to match encoder count direction as well.
 
 To connect the motor encoder, plug in the encoder wires to corresponding signal. 
 
